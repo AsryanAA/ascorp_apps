@@ -1,0 +1,2 @@
+# Base golang project
+
