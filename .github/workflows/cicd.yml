@@ -19,10 +19,10 @@ jobs:
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
     - name: test SSH connection
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful!'"
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
 
     - name: execute remote commands
       run: |
         ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-          echo "deployment completed!"
+          echo "deployment completed"
         EOF
