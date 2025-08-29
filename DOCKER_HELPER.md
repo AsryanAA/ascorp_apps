@@ -9,7 +9,9 @@ docker build -t my-golang-app .
 ```shell
 docker run -p 8016:8080 --rm my-golang-app
 
-docker compose up -d
+docker compose up -d (sudo apt-get install docker-compose-plugin)
+
+docker compose version
 ```
 
 ### Остановить контейнер
