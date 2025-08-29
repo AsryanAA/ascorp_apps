@@ -10,4 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout code
-    uses: actions/checkout@v4
+      uses: actions/checkout@v4
+
+    - name: install ssh key
+      uses: shimataro/ssh-key-action@v2
+      with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+
+    - name: Test SSH connection
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful!'"
+
+    - name: Execute remote commands
+      run: |
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          echo "Deployment completed!"
+        EOF
