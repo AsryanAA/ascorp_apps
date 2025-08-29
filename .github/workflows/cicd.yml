@@ -18,8 +18,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
-    - name: test SSH connection
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
+    - name: ssh connection
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo 'ssh connection successful'"
 
     - name: execute remote commands
       run: |
