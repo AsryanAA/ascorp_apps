@@ -1,0 +1,36 @@
+networks:
+  ascorp-api:
+
+volumes:
+  ascorp_api_db_volume:
+
+services:
+  db-postgres:
+    container_name: db-postgres
+    image: postgres:16.1
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DATABASE=${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - ascorp_api_db_volume:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - ascorp-api
+
+  backend-golang:
+    build: .
+    ports:
+      - "8016:8080"
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - db-postgres
+    networks:
+      - ascorp-api
