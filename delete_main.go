@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
+func test_main() {
 	router := gin.Default()
 
 	// Статические файлы (CSS, JS, изображения)
