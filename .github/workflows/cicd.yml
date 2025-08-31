@@ -23,5 +23,5 @@ jobs:
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
           set e
           echo '🔄 Запуск сервисов'
-          cd /ascorp_apps
+          cd ascorp_apps/
           docker compose up -d
