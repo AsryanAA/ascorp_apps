@@ -10,6 +10,6 @@ COPY . .
 
 RUN go build -o app .
 
-EXPOSE 8080
+EXPOSE 8016
 
 CMD ["./app"]
