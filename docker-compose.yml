@@ -23,7 +23,7 @@ services:
   backend-golang:
     build: .
     ports:
-      - "8016:8080"
+      - "8016:8016"
     environment:
       DB_HOST: ${DB_HOST}
       DB_PORT: ${DB_PORT}
