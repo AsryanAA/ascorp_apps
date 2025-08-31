@@ -18,9 +18,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
-      - name: run services
-        run: |
-            ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-            set e
-            echo '🔄 Обновление пакетов...'
-            docker compose up -d
+    - name: run services
+      run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          set e
+          echo '🔄 Обновление пакетов...'
+          docker compose up -d
