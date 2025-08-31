@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func main1() {
+func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		var err error
 

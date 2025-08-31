@@ -7,7 +7,7 @@ import (
 	"net/url"
 )
 
-func main() {
+func main23() {
 	// Настройка прокси
 	proxy := httputil.NewSingleHostReverseProxy(&url.URL{
 		Scheme: "http",
