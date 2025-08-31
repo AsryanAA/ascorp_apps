@@ -12,6 +12,12 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v4
 
+    - name: install ssh key
+      uses: shimataro/ssh-key-action@v2
+      with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+
     - name: Install Docker and deploy
       run: |
         ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
