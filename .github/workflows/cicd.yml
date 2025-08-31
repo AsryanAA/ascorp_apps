@@ -23,4 +23,5 @@ jobs:
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
           set e
           echo '🔄 Запуск сервисов'
-          docker compose up -f './ascorp_apps/docker-compose.yml'
+          ls -la
+          docker compose up -d
