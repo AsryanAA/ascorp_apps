@@ -1,19 +1,19 @@
-name: Deploy to Server
+name: deploy to server
 
 on:
   push:
     branches:
-      - main   # деплой только из main
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy with docker-compose
+      - name: deploy with docker-compose
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             cd /var/www/app && \
