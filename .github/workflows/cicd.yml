@@ -23,7 +23,8 @@ jobs:
       - name: deploy with docker-compose
         run: |
           ssh root@${{ secrets.SSH_HOST }} "
-            git pull && \
+            git clone https://github.com/AsryanAA/ascorp_apps.git && \
+            cd ascorp_apps && \
             docker compose pull && \
             docker compose up -d && \
             docker ps -a
