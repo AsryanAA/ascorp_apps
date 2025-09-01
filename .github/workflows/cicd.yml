@@ -15,7 +15,7 @@ jobs:
 
       - name: deploy with docker-compose
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          ssh root@${{ secrets.SSH_HOST }} "
             cd /var/www/app && \
             git pull && \
             docker compose pull && \
